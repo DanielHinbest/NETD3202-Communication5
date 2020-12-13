@@ -1,6 +1,8 @@
 ﻿/* Daniel Hinbest
  * NETD 3202 - Lab 5
  * December 6, 2020
+ * This new version now includes sign-in functionality with the Identity Framework
+ * 
  * This ASP.NET Core application is designed to allow the user to enter the information for a curling game, including the teams and the scores, and also provides functionality for editing, and deleting results.
  * This model sets the content for the score record, with the scores for each team as well as how many ends each team won in a game
  */
