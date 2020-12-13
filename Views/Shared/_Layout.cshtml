@@ -1,55 +1,175 @@
-﻿<!DOCTYPE html>
+﻿@*<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"]</title>
+        <link runat="server" rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <link runat="server" rel="icon" href="/favicon.ico" type="image/ico" />
+        <link rel="stylesheet" href="/css/styles.css" />
+        <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">NETD3202_Communication5</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <partial name="_LoginPartial" />
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Scores" asp-action="Index">Scores</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Team" asp-action="Index">Team</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+        <footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2020 - NETD3202_Communication5 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @RenderSection("Scripts", required: false)
+    </body>
+    </html>*@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - NETD3202_Communication5</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link runat="server" rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link runat="server" rel="icon" href="/favicon.ico" type="image/ico" />
+    <!-- The title for the page's tab -->
+    <title>@ViewData["Title"]</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/css/styles.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">NETD3202_Communication5</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Scores" asp-action="Index">Scores</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Team" asp-action="Index">Team</a>
-                        </li>
-                    </ul>
+    @*<header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">identityframework</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            </li>
+                        </ul>
+                        @await Html.PartialAsync("_LoginPartial")
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </header>
+            </nav>
+        </header>*@
+    @*Top navigation bar*@
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+        @*Logo. Redirects to the main Index*@
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" asp-area="" asp-controller="Home" asp-action="Index">
+            <img src="~/download.jpg" href="Index" width="50" />
+            Curling Tracker
+        </a>
+        @await Html.PartialAsync("_LoginPartial")
+    </nav>
     <div class="container">
         <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                        <div class="sidebar-sticky">
+                            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                                @*Nav links for the scores table*@
+                                <span>Curling Scores</span>
+                                <a class="d-flex align-items-center text-muted" href="#">
+                                    <span data-feather="plus-circle"></span>
+                                </a>
+                            </h6>
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Scores" asp-action="Index">
+                                        <span data-feather="home"></span>
+                                        View Scores List<span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Scores" asp-action="Create">
+                                        <span data-feather="home"></span>
+                                        Create New Score<span class="sr-only">(current)</span>
+                                    </a>
+                                </li>
+                            </ul>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - NETD3202_Communication5 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
+                            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                                @*Nav links for the teams table*@
+                                <span>Curling Teams</span>
+                                <a class="d-flex align-items-center text-muted" asp-area="" asp->
+                                    <span data-feather="plus-circle"></span>
+                                </a>
+                            </h6>
+                            <ul class="nav flex-column mb-2">
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="Team" asp-action="Index">
+                                        <span data-feather="file-text"></span>
+                                        View Teams List
+                                    </a>
+                                </li>
+                                <li class="nav flex-column mb-2">
+                                    <a class="nav-link" asp-area="" asp-controller="Team" asp-action="Create">
+                                        <span data-feather="file-text"></span>
+                                        Create New Team
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav><!-- The main part of the page. This is where all page content is stored. -->
+                    <main class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                        @RenderBody()
+                    </main>
+                </div>
+
+                <footer class="border-top footer text-muted">
+
+                    <!--Copyright symbol-->
+                    <p class="mt-5 mb-3 text-muted text-center">&copy; 2020</p>
+                </footer>
+                <script src="~/lib/jquery/dist/jquery.min.js"></script>
+                <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+                <script src="~/js/site.js" asp-append-version="true"></script>
+                @RenderSection("Scripts", required: false)
+            </div>
+    </div>
 </body>
 </html>
+
