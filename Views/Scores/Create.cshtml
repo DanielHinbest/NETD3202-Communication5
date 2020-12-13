@@ -1,0 +1,49 @@
+﻿@model NETD3202_Communication5.Models.Score
+
+@{
+    ViewData["Title"] = "Create";
+}
+<!--
+    Daniel Hinbest
+    NETD 3202 - Lab 5
+    December 6, 2020
+    This ASP.NET Core application is designed to allow the user to enter the information for a curling game, including the teams and the scores, and also provides functionality for editing, and deleting results.
+    This view creates a new score record
+    The template for this application is the same template provided for Web Development - Intermediate (WEBD 3201).
+ -->
+<!--Page header-->
+<h2 class="h2">Add New Score</h2>
+<hr />
+<div class="form-signin">
+    <form class="form-signin" asp-action="Create">
+        <h3 class="h3">Score</h3>
+        <!--Input content for the model-->
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <!--Input prompt for the first team score-->
+        <label asp-for="teamOneTotal" class="sr-only"></label>
+        <input asp-for="teamOneTotal" placeholder="Team One Score" class="form-control" />
+        <span asp-validation-for="teamOneTotal" class="text-danger"></span>
+
+        <!-- Input prompt for the first team ends -->
+        <label asp-for="teamOneEnds" class="sr-only"></label>
+        <input asp-for="teamOneEnds" placeholder="Team One Ends" class="form-control" />
+        <span asp-validation-for="teamOneEnds" class="text-danger"></span>
+
+        <!-- Input prompt for the second team score -->
+        <label asp-for="teamTwoTotal" class="sr-only"></label>
+        <input asp-for="teamTwoTotal" placeholder="Team Two Score" class="form-control" />
+        <span asp-validation-for="teamTwoTotal" class="text-danger"></span>
+
+        <!-- Input prompt for the second team ends -->
+        <label asp-for="teamTwoEnds" class="sr-only"></label>
+        <input asp-for="teamTwoEnds" placeholder="Team Two Ends" class="form-control" />
+        <span asp-validation-for="teamTwoEnds" class="text-danger"></span>
+
+        <!-- Button to submit the form -->
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+    </form>
+</div>
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

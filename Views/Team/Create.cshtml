@@ -1,0 +1,57 @@
+﻿@model NETD3202_Communication5.Models.Team
+
+@{
+    ViewData["Title"] = "Create";
+}
+<!--
+    Daniel Hinbest
+    NETD 3202 - Lab 5
+    December 6, 2020
+    This ASP.NET Core application is designed to allow the user to enter the information for a curling game, including the teams and the scores, and also provides functionality for editing, and deleting results.
+    This view creates a new team record
+    The template for this application is the same template provided for Web Development - Intermediate (WEBD 3201).
+ -->
+<!--Page header-->
+<h2>Add New Team</h2>
+<hr />
+<!--Form to create a new team record-->
+<div class="form-signin">
+    <form class="form-signin" asp-action="Create">
+        <h3 class="h3">Team</h3>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <!--Prompt for the lead-->
+        <label asp-for="leadName" class="sr-only"></label>
+        <input asp-for="leadName" placeholder="Lead Name" class="form-control" />
+        <span asp-validation-for="leadName" class="text-danger"></span>
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <!--Prompt for the second-->
+        <label asp-for="secondName" class="sr-only"></label>
+        <input asp-for="secondName" placeholder="Second Name" class="form-control" />
+        <span asp-validation-for="secondName" class="text-danger"></span>
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <!--Prompt for the vice-->
+        <label asp-for="viceName" class="sr-only"></label>
+        <input asp-for="viceName" placeholder="Vice Name" class="form-control" />
+        <span asp-validation-for="viceName" class="text-danger"></span>
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <!--Prompt for the skip-->
+        <label asp-for="skipName" class="sr-only"></label>
+        <input asp-for="skipName" placeholder="Skip Name" class="form-control" />
+        <span asp-validation-for="skipName" class="text-danger"></span>
+
+        <!--Submit the form-->
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+    </form>
+</div>
+
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

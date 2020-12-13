@@ -1,0 +1,65 @@
+﻿@model IEnumerable<NETD3202_Communication5.Models.Score>
+
+@{
+    ViewData["Title"] = "Scores Home";
+}
+<!--
+    Daniel Hinbest
+    NETD 3202 - Lab 5
+    December 6, 2020
+    This ASP.NET Core application is designed to allow the user to enter the information for a curling game, including the teams and the scores, and also provides functionality for editing, and deleting results.
+    This page is the index for the scores. It shows a list of all scores in the database.
+    The template for this application is the same template provided for Web Development - Intermediate (WEBD 3201).
+ -->
+<!--Page header-->
+<h1 class="h1">Scores - Home</h1>
+<!--Link to allow the user to input a new score-->
+<p class="p-2">
+    <a asp-action="Create">Create New Score</a>
+</p>
+<!--Table for the output of the records-->
+<table>
+    <thead>
+        <tr>
+            <!--Table headers-->
+            <th>
+                Team One Total
+            </th>
+            <th>
+                Team One Ends
+            </th>
+            <th>
+                Team Two Total
+            </th>
+            <th>
+                Team Two Ends
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--Table body. This loops through each element of the database and outputs each column of each record-->
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.teamOneEnds)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.teamOneTotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.teamTwoTotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.teamTwoEnds)
+                </td>
+                <td>
+                    <!--Allows the user to edit, view, or delete a record-->
+                    <a asp-action="Edit" asp-route-id="@item.scoreID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.scoreID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.scoreID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

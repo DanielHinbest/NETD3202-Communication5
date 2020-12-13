@@ -1,0 +1,52 @@
+﻿@model NETD3202_Communication5.Models.Team
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<!--
+    Daniel Hinbest
+    NETD 3202 - Lab 5
+    December 6, 2020
+    This ASP.NET Core application is designed to allow the user to enter the information for a curling game, including the teams and the scores, and also provides functionality for editing, and deleting results.
+    This view allows the user to edit a team record.
+    The template for this application is the same template provided for Web Development - Intermediate (WEBD 3201).
+ -->
+
+<hr />
+<!--Form to edit a record-->
+<div class="form-signin">
+    <form class="form-signin" asp-action="Edit">
+        <h1>Edit Team</h1>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="teamID" />
+
+        <!--Prompt for lead-->
+        <label asp-for="leadName" class="sr-only"></label>
+        <input asp-for="leadName" placeholder="Lead" class="form-control" />
+        <span asp-validation-for="leadName" class="text-danger"></span>
+
+        <!--Prompt for second-->
+        <label asp-for="secondName" class="sr-only"></label>
+        <input asp-for="secondName" placeholder="Second" class="form-control" />
+        <span asp-validation-for="secondName" class="text-danger"></span>
+
+        <!--Prompt for vice-->
+        <label asp-for="viceName" class="sr-only"></label>
+        <input asp-for="viceName" placeholder="Vice" class="form-control" />
+        <span asp-validation-for="viceName" class="text-danger"></span>
+
+        <!--Prompt for skip-->
+        <label asp-for="skipName" class="sr-only"></label>
+        <input asp-for="skipName" placeholder="Skip" class="form-control" />
+        <span asp-validation-for="skipName" class="text-danger"></span>
+
+        <!--Submit the form-->
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <!--Return to index-->
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

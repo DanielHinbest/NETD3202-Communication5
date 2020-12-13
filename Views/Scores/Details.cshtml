@@ -1,0 +1,50 @@
+﻿@model NETD3202_Communication5.Models.Score
+
+@{
+    ViewData["Title"] = "Details";
+}
+<!--
+    Daniel Hinbest
+    NETD 3202 - Lab 5
+    December 6, 2020
+    This ASP.NET Core application is designed to allow the user to enter the information for a curling game, including the teams and the scores, and also provides functionality for editing, and deleting results.
+    This page allows the user to view the details for an individual record.
+    The template for this application is the same template provided for Web Development - Intermediate (WEBD 3201).
+ -->
+
+<div>
+    <!--Page header-->
+    <h2>Score</h2>
+    <hr />
+    <!--Displays all the information for the selected record-->
+    <dl class="row">
+        <dt class="col-sm-2">
+            Team One Total
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.teamOneTotal)
+        </dd>
+        <dt class="col-sm-2">
+            Team One Ends
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.teamOneEnds)
+        </dd>
+        <dt class="col-sm-2">
+            Team Two Total
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.teamTwoTotal)
+        </dd>
+        <dt class="col-sm-2">
+            Team Two Ends
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.teamTwoEnds)
+        </dd>
+    </dl>
+    <!--Link to edit the record-->
+    <a asp-action="Edit" asp-route-id="@Model.scoreID">Edit</a>
+    <!--Sends the user back to the index-->
+    <a asp-action="Index">Back to List</a>
+</div>

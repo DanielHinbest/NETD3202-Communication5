@@ -1,0 +1,65 @@
+﻿@model IEnumerable<NETD3202_Communication5.Models.Team>
+
+@{
+    ViewData["Title"] = "Teams Home";
+}
+<!--
+    Daniel Hinbest
+    NETD 3202 - Lab 5
+    December 6, 2020
+    This ASP.NET Core application is designed to allow the user to enter the information for a curling game, including the teams and the scores, and also provides functionality for editing, and deleting results.
+    This page is the index for the teams. It shows a list of all teams in the database.
+    The template for this application is the same template provided for Web Development - Intermediate (WEBD 3201).
+ -->
+<!--Page header-->
+<h1>Teams - Home</h1>
+
+<!--Link to create a new team-->
+<p>
+    <a asp-action="Create">Create New Team</a>
+</p>
+<table>
+    <!--Table headers-->
+    <thead>
+        <tr>
+            <th>
+                Lead:
+            </th>
+            <th>
+                Second:
+            </th>
+            <th>
+                Vice:
+            </th>
+            <th>
+                Skip:
+            </th>
+        </tr>
+    </thead>
+    <!--Table body. This loops through each element of the database and outputs each column of each record-->
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.leadName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.secondName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.viceName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.skipName)
+                </td>
+                <td>
+                    <!--Allows the user to edit, view, or delete a record-->
+                    <a asp-action="Edit" asp-route-id="@item.teamID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.teamID">Delete</a> |
+                    <a asp-action="Delete" asp-route-id="@item.teamID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

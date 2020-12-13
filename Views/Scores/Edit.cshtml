@@ -1,0 +1,46 @@
+﻿@model NETD3202_Communication5.Models.Score
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<hr />
+<!-- This form allows the user to change a record -->
+<div class="form-signin">
+    <form class="form-signin" asp-action="Edit">
+        <!-- Form header -->
+        <h2>Edit Score</h2>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="scoreID" />
+
+        <!--Prompt for first team score -->
+        <label asp-for="teamOneTotal" class="sr-only"></label>
+        <input asp-for="teamOneTotal" placeholder="Team One Total" class="form-control" />
+        <span asp-validation-for="teamOneTotal" class="text-danger"></span>
+
+        <!-- Prompt for first team end total-->
+        <label asp-for="teamOneEnds" class="sr-only"></label>
+        <input asp-for="teamOneEnds" placeholder="Team One Ends" class="form-control" />
+        <span asp-validation-for="teamOneEnds" class="text-danger"></span>
+
+        <!-- Prompt for second team score -->
+        <label asp-for="teamTwoTotal" class="sr-only"></label>
+        <input asp-for="teamTwoTotal" placeholder="Team Two Total" class="form-control" />
+        <span asp-validation-for="teamTwoTotal" class="text-danger"></span>
+
+        <!-- Prompt for second team end total -->
+        <label asp-for="teamTwoEnds" class="sr-only"></label>
+        <input asp-for="teamTwoEnds" placeholder="Team Two Ends" class="form-control" />
+        <span asp-validation-for="teamTwoEnds" class="text-danger"></span>
+
+        <!--Submit the form-->
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <!--Allows the user to return to the list-->
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
